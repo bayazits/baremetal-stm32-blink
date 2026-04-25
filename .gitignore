@@ -1,0 +1,5 @@
+obj/
+bin/
+*.elf
+*.o
+.vscode/

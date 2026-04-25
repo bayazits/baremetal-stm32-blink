@@ -1,0 +1,25 @@
+# Create the machine
+mach create
+machine LoadPlatformDescription @platforms/boards/stm32f4_discovery.repl
+
+# Load the ELF file (using the path from the bin folder)
+sysbus LoadELF @bin/firmware.elf
+
+# Open the UART terminal automatically
+showAnalyzer sysbus.usart2
+
+# Create a Python hook to monitor GPIO changes
+# Alternatif: 'antmicro.renode.peripherals.bus.SystemBus' üzerinden erişim
+python """
+def log_gpio_change(pin, value):
+    if pin == 12:
+        state = 'ON' if value else 'OFF'
+        print('LED Status: ' + state)
+
+# 'self' genellikle geçerli makineyi temsil eder
+self.sysbus.gpioD.AddStateChangedHook(log_gpio_change)
+"""
+
+
+# Start the simulation
+start
