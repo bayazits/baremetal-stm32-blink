@@ -1,10 +1,4 @@
 # STM32F4 Bare-Metal Tick-Timer & GPIO Simulation
-
-![Embedded](https://shields.io)
-![MCU](https://shields.io)
-![Toolchain](https://shields.io)
-![Simulator](https://shields.io)
-
 This project demonstrates a professional **Bare-Metal** embedded software development workflow. It focuses on hardware timers, interrupt handling, and low-level register manipulation on an ARM Cortex-M4 (STM32F4 Discovery) MCU, all within the **Renode** simulation environment.
 
 ## 🚀 Overview
